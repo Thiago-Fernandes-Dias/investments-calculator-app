@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-export type InvestmentsResults = {
+export interface InvestmentResults {
   year: number,
   interest: number,
   valueEndOfYear: number,
@@ -9,7 +9,7 @@ export type InvestmentsResults = {
   totalAmountInvested: number,
 }
 
-export interface InvestmentResultParams {
+export interface InvestmentResultsParams {
   initialInvestment: number,
   duration: number,
   expectedReturn: number,
@@ -17,9 +17,9 @@ export interface InvestmentResultParams {
 }
 
 @Injectable({ providedIn: 'root' })
-export class InvestmentsResultsService {
-  annualData: InvestmentsResults[] = [];
-  calculateInvestmentResults(params: InvestmentResultParams): void {
+export class InvestmentResultsService {
+  annualData: InvestmentResults[] = [];
+  calculateInvestmentResults(params: InvestmentResultsParams): void {
     const annualData = [];
     const {
       initialInvestment,

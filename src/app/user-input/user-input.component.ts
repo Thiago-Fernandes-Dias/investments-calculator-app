@@ -1,5 +1,5 @@
-import { Component, inject  } from '@angular/core';
-import { InvestmentsResultsService } from '../investments-results.service';
+import { Component, inject } from '@angular/core';
+import { InvestmentResultsService } from '../investments-results.service';
 
 @Component({
   selector: 'app-user-input',
@@ -7,14 +7,14 @@ import { InvestmentsResultsService } from '../investments-results.service';
   styleUrl: './user-input.component.css'
 })
 export class UserInputComponent {
-  private investmentResultsService : InvestmentsResultsService = inject(InvestmentsResultsService)
+  private investmentResultsService: InvestmentResultsService = inject(InvestmentResultsService)
 
-  onSubmit() : void {
+  onSubmit(): void {
     const params = {
-      duration : parseInt(this.enteredDuration),
-      annualInvestment : parseInt(this.enteredAnnualInvestment),
-      initialInvestment : parseInt(this.enteredInitialInvestment),
-      expectedReturn : parseInt(this.enteredExpectedReturn),
+      duration: parseInt(this.enteredDuration),
+      annualInvestment: parseInt(this.enteredAnnualInvestment),
+      initialInvestment: parseInt(this.enteredInitialInvestment),
+      expectedReturn: parseInt(this.enteredExpectedReturn),
     }
     this.investmentResultsService.calculateInvestmentResults(params);
   }

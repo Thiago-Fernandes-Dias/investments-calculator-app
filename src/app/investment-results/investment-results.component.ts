@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { InvestmentsResultsService, type InvestmentsResults } from '../investments-results.service';
+import { InvestmentResultsService, InvestmentResults } from '../investments-results.service';
 
 @Component({
   selector: 'app-investment-results',
@@ -9,9 +9,9 @@ import { InvestmentsResultsService, type InvestmentsResults } from '../investmen
   styleUrl: './investment-results.component.css'
 })
 export class InvestmentResultsComponent {
-  private investmentResultsService: InvestmentsResultsService = inject(InvestmentsResultsService);
+  private investmentResultsService: InvestmentResultsService = inject(InvestmentResultsService);
 
-  get results(): InvestmentsResults[] {
+  get results(): InvestmentResults[] {
     return this.investmentResultsService.annualData;
   }
 }
