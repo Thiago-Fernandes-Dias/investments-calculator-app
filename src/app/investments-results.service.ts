@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-type InvestmentsResults = {
+export type InvestmentsResults = {
   year: number,
   interest: number,
   valueEndOfYear: number,
@@ -9,7 +9,7 @@ type InvestmentsResults = {
   totalAmountInvested: number,
 }
 
-interface InvestmentResultParams {
+export interface InvestmentResultParams {
   initialInvestment: number,
   duration: number,
   expectedReturn: number,
