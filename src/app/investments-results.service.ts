@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
 type InvestmentsResults = {
   year: number,
@@ -9,16 +9,16 @@ type InvestmentsResults = {
   totalAmountInvested: number,
 }
 
-type InvestmentResultParams = {
-  initialInvestment : number,
+interface InvestmentResultParams {
+  initialInvestment: number,
   duration: number,
   expectedReturn: number,
-  annualInvestment : number
+  annualInvestment: number
 }
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class InvestmentsResultsService {
-  annualData : InvestmentsResults[] = [];
+  annualData: InvestmentsResults[] = [];
   calculateInvestmentResults(params: InvestmentResultParams): void {
     const annualData = [];
     const {
@@ -28,7 +28,6 @@ export class InvestmentsResultsService {
       annualInvestment: annualInvestment,
     } = params;
     let investmentValue = initialInvestment;
-
     for (let i = 0; i < duration; i++) {
       const year = i + 1;
       const interestEarnedInYear = investmentValue * (expectedReturn / 100);
@@ -43,7 +42,6 @@ export class InvestmentsResultsService {
         totalAmountInvested: initialInvestment + annualInvestment * year,
       });
     }
-
     this.annualData = annualData;
   }
 }
